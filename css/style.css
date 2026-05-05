@@ -42,7 +42,7 @@
     padding: 20px;
 }
 
-form{
+form {
     width: 750px;
 }
 
@@ -122,16 +122,22 @@ input[type=radio] {
     margin: 10px 0px;
 }
 
-#cabecalho-lista{
+#cabecalho-lista {
     background-color: #000000;
     color: #ffffff;
 }
 
-#cabecalho-lista, .veiculo {
+#cabecalho-lista,
+.veiculo {
     padding: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+#cabecalho-lista span,
+.veiculo span {
+    margin: 0px 10px;
 }
 
 .veiculo {
@@ -140,9 +146,26 @@ input[type=radio] {
     margin: 5px 0px;
 }
 
-.veiculo span img{
+.veiculo span img {
     width: 25px;
     height: 25px;
     cursor: pointer;
 }
 
+span.img {
+    width: 30px;
+    height: 25px;
+}
+
+span.txt,
+span.vlr {
+    width: 200px;
+}
+
+span.alg {
+    text-align: center;
+}
+
+span.vlr {
+    text-align: right;
+}
