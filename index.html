@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crud - Veículos</title>
+</head>
+
+<body>
+    <div id="geral">
+        <header id="cabecalho">
+            <div id="titulo-logo">
+                Veículo
+            </div>
+            <div id="logo">
+                <img src="imagens/logo.png" alt="Logo Veículo" title="Logo Veículo">
+            </div>
+        </header>
+        <div id="div-form">
+            <form name="form-veiculos" id="form-veiculos">
+                <input type="text" name="modelo" id="modelo" class="input-txt01" maxlength="35" placeholder="Modelo" required>
+
+                <input type="text" name="marca" id="marca" class="input-txt02" maxlength="15" placeholder="Marca" required>
+
+                <input type="text" name="placa" id="placa" class="input-txt02" maxlength="7" placeholder="Placa" required>
+
+                <input type="text" name="ano" id="ano" class="input-num" maxlength="9" placeholder="Ano Fabricação" required>
+
+                <input type="text" name="valor" id="valor" class="input-num" maxlength="12" placeholder="Valor de Mercado" required>
+
+                <div id="tipo-combustivel">
+                    <input type="radio" name="tpCombustivel" id="gasolina" class="radio-combustivel" value="g">Gasolina
+                    <input type="radio" name="tpCombustivel" id="etanol" class="radio-combustivel" value="e">Etanol
+                    <input type="radio" name="tpCombustivel" id="bicombustivel" class="radio-combustivel" value="b">Bicombustível
+                    <input type="radio" name="tpCombustivel" id="etanol" class="radio-combustivel" value="h">Híbrido
+                    <input type="radio" name="tpCombustivel" id="eletrico" class="radio-combustivel" value="e">Elétrico
+                </div>
+
+                <div id="div-btns">
+                    <button type="submit" id="btn-enviar"> Cadastrar </button>
+                    <button type="reset" id="btn-limpar"> Limpar </button>
+                </div>
+            </form>
+        </div>
+        <div id="div-lista">
+            <h1 id="titulo-lista">Lista Veículos</h1>
+
+            <div id="cabecalho-lista">
+                <ul>
+                    <li>Modelo</li>
+                    <li>Marca</li>
+                    <li>Placa</li>
+                    <li>Tempo</li>
+                    <li>Seguro</li>
+                    <li>IPVA</li>
+                    <li>Licenciamento</li>
+                </ul>
+            </div>
+
+        </div>
+
+        </form>
+    </div>
+</body>
+
+</html>
