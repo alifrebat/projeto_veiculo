@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crud - Veículos</title>
+
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -21,20 +23,20 @@
             <form name="form-veiculos" id="form-veiculos">
                 <input type="text" name="modelo" id="modelo" class="input-txt01" maxlength="35" placeholder="Modelo" required>
 
-                <input type="text" name="marca" id="marca" class="input-txt02" maxlength="15" placeholder="Marca" required>
+                <input type="text" name="marca" id="marca" class="input-txt01" maxlength="15" placeholder="Marca" required>
 
                 <input type="text" name="placa" id="placa" class="input-txt02" maxlength="7" placeholder="Placa" required>
 
-                <input type="text" name="ano" id="ano" class="input-num" maxlength="9" placeholder="Ano Fabricação" required>
+                <input type="number" name="ano" id="ano" class="input-num" maxlength="9" placeholder="Ano Fabricação" required>
 
-                <input type="text" name="valor" id="valor" class="input-num" maxlength="12" placeholder="Valor de Mercado" required>
+                <input type="number" name="valor" id="valor" class="input-num" maxlength="12" placeholder="Valor de Mercado" required>
 
                 <div id="tipo-combustivel">
-                    <input type="radio" name="tpCombustivel" id="gasolina" class="radio-combustivel" value="g">Gasolina
-                    <input type="radio" name="tpCombustivel" id="etanol" class="radio-combustivel" value="e">Etanol
-                    <input type="radio" name="tpCombustivel" id="bicombustivel" class="radio-combustivel" value="b">Bicombustível
-                    <input type="radio" name="tpCombustivel" id="etanol" class="radio-combustivel" value="h">Híbrido
-                    <input type="radio" name="tpCombustivel" id="eletrico" class="radio-combustivel" value="e">Elétrico
+                    <input type="radio" name="tpCombustivel" id="gasolina" class="radio-combustivel" required value="g">Gasolina
+                    <input type="radio" name="tpCombustivel" id="etanol" class="radio-combustivel" required value="e">Etanol
+                    <input type="radio" name="tpCombustivel" id="bicombustivel" class="radio-combustivel" required value="b">Bicombustível
+                    <input type="radio" name="tpCombustivel" id="etanol" class="radio-combustivel" required value="h">Híbrido
+                    <input type="radio" name="tpCombustivel" id="eletrico" class="radio-combustivel" required value="e">Elétrico
                 </div>
 
                 <div id="div-btns">
@@ -44,7 +46,7 @@
             </form>
         </div>
         <div id="div-lista">
-            <h1 id="titulo-lista">Lista Veículos</h1>
+            <h3 id="titulo-lista">Lista Veículos</h3>
 
             <div id="cabecalho-lista">
                 <span> Modelo </span>
@@ -54,8 +56,10 @@
                 <span> Seguro </span>
                 <span> IPVA </span>
                 <span> Licenciamento </span>
+                <span></span>
+                <span></span>
             </div>
-
+            
             <div id="div-veiculo">
                 <div class="veiculo">
                     <span> Fusca </span>
@@ -65,6 +69,8 @@
                     <span> R$ 260,00 </span>
                     <span> R$ 1850,00 </span>
                     <span> R$ 2110,00 </span>
+                    <span> <img src="imagens/btn_alterar.png" alt="Alterar" title="Alterar" ></span>
+                    <span> <img src="imagens/btn_excluir.png" alt="Excluir" title="Excluir"></span>
                 </div>
 
                 <div class="veiculo">
@@ -75,6 +81,8 @@
                     <span> R$ 260,00 </span>
                     <span> R$ 1850,00 </span>
                     <span> R$ 2110,00 </span>
+                    <span> <img src="imagens/btn_alterar.png" alt="Alterar" title="Alterar" ></span>
+                    <span> <img src="imagens/btn_excluir.png" alt="Excluir" title="Excluir"></span>
                 </div>
                 <div class="veiculo">
                     <span> Fusca </span>
@@ -84,6 +92,8 @@
                     <span> R$ 260,00 </span>
                     <span> R$ 1850,00 </span>
                     <span> R$ 2110,00 </span>
+                    <span> <img src="imagens/btn_alterar.png" alt="Alterar" title="Alterar" ></span>
+                    <span> <img src="imagens/btn_excluir.png" alt="Excluir" title="Excluir"></span>
                 </div>
             </div>
 
