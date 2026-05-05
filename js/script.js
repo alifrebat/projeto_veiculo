@@ -48,6 +48,7 @@ const listarVeiculos = () => {
 
     let vlrSeguro = 0.0
     let vlrIpva = 0.0
+    let idadeVeiculo = 0.0
 
     veiculos.forEach((elem, i) => {
 
@@ -55,12 +56,13 @@ const listarVeiculos = () => {
 
         vlrIpva = elem.tipoCombustivel === 'G' ? parseFloat(elem.valor) * 0.20 : elem.tipoCombustivel === 'E' ? parseFloat(elem.valor) * 0.15 : elem.tipoCombustivel === 'B' ? parseFloat(elem.valor) * 0.10 : elem.tipoCombustivel === 'H' ? parseFloat(elem.valor) * 0.08 : parseFloat(elem.valor) * 0.02
 
+        idadeVeiculo = calcIdade(elem.ano)
 
-
+        vlrIpva = idadeVeiculo > 20 ? 0 : vlrIpva
 
         const divVeiculo = document.createElement('div')
         divVeiculo.setAttribute('class', 'veiculo')
-        divVeiculo.innerHTML = `<span class="txt"> ${elem.modelo} </span> <span class="txt"> ${elem.marca} </span> <span class="txt alg"> ${elem.placa} </span> <span class="txt alg"> ${calcIdade(elem.ano)}anos </span> <span class="vlr"> R$ ${parseFloat(vlrSeguro).toFixed(2).replaceAll('.', ',')} </span> <span class="vlr"> R$ ${parseFloat(vlrIpva).toFixed(2).replaceAll('.', ',')} </span> <span class="vlr"> R$ ${parseFloat(vlrSeguro + vlrIpva).toFixed(2).replaceAll('.', ',')} </span>`
+        divVeiculo.innerHTML = `<span class="txt"> ${elem.modelo} </span> <span class="txt"> ${elem.marca} </span> <span class="txt alg"> ${elem.placa} </span> <span class="txt alg"> ${idadeVeiculo}anos </span> <span class="vlr"> R$ ${parseFloat(vlrSeguro).toFixed(2).replaceAll('.', ',')} </span> <span class="vlr">  ${vlrIpva > 0 ? parseFloat(vlrIpva).toFixed(2).replaceAll('.', ',') : 'Isento'} </span> <span class="vlr"> R$ ${parseFloat(vlrSeguro + vlrIpva).toFixed(2).replaceAll('.', ',')} </span>`
 
 
         const imgAlterar = document.createElement('img')
