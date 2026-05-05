@@ -56,20 +56,22 @@ const listarVeiculos = () => {
         vlrIpva = elem.tipoCombustivel === 'G' ? parseFloat(elem.valor) * 0.20 : elem.tipoCombustivel === 'E' ? parseFloat(elem.valor) * 0.15 : elem.tipoCombustivel === 'B' ? parseFloat(elem.valor) * 0.10 : elem.tipoCombustivel === 'H' ? parseFloat(elem.valor) * 0.08 : parseFloat(elem.valor) * 0.02
 
 
+
+
         const divVeiculo = document.createElement('div')
         divVeiculo.setAttribute('class', 'veiculo')
-        divVeiculo.innerHTML = `<span class="txt"> ${elem.modelo} </span> <span class="txt"> ${elem.marca} </span> <span class="txt alg"> ${elem.placa} </span> <span class="txt alg"> ${elem.ano}anos </span> <span class="vlr"> R$ ${parseFloat(vlrSeguro).toFixed(2).replaceAll('.',',') } </span> <span class="vlr"> R$ ${parseFloat(vlrIpva).toFixed(2).replaceAll('.',',') } </span> <span class="vlr"> R$ ${parseFloat(vlrSeguro + vlrIpva).toFixed(2).replaceAll('.',',')} </span>`
+        divVeiculo.innerHTML = `<span class="txt"> ${elem.modelo} </span> <span class="txt"> ${elem.marca} </span> <span class="txt alg"> ${elem.placa} </span> <span class="txt alg"> ${calcIdade(elem.ano)}anos </span> <span class="vlr"> R$ ${parseFloat(vlrSeguro).toFixed(2).replaceAll('.', ',')} </span> <span class="vlr"> R$ ${parseFloat(vlrIpva).toFixed(2).replaceAll('.', ',')} </span> <span class="vlr"> R$ ${parseFloat(vlrSeguro + vlrIpva).toFixed(2).replaceAll('.', ',')} </span>`
 
-        
+
         const imgAlterar = document.createElement('img')
         imgAlterar.setAttribute('src', 'imagens/btn_alterar.png')
         imgAlterar.setAttribute('alt', 'Alterar')
         imgAlterar.setAttribute('title', 'Alterar')
-        
+
         imgAlterar.addEventListener('click', () => {
             alert(`Em construção ${elem.idVeiculo}`)
         })
-        
+
         const spanImgAlterar = document.createElement('span')
         spanImgAlterar.appendChild(imgAlterar)
 
@@ -90,4 +92,14 @@ const listarVeiculos = () => {
 
         divListarVeiculo.appendChild(divVeiculo)
     });
+}
+
+//CALCULANDO A IDADE
+const calcIdade = (ano) => {
+
+    const hoje = new Date()
+
+    let idade = hoje.getFullYear() - ano
+
+      return idade
 }
