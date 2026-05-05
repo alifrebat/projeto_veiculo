@@ -53,7 +53,7 @@ const listarVeiculos = () => {
 
         vlrSeguro = parseFloat(elem.valor) * 0.10
 
-        vlrIpva = elem.tipoCombustivel === 'G' ? parseFloat(elem.valor) * 0.20 : elem.tipoCombustivel === 'E' ? parseFloat(elem.valor) * 0.15 : elem.tipoCombustivel === 'B' ? parseFloat(elem.valor) * 0.10 : elem.tipoCombustivel === 'H' ? parseFloat(elem.valor) * 0.08 : parseFloat(elem.valor) * 0.02 
+        vlrIpva = elem.tipoCombustivel === 'G' ? parseFloat(elem.valor) * 0.20 : elem.tipoCombustivel === 'E' ? parseFloat(elem.valor) * 0.15 : elem.tipoCombustivel === 'B' ? parseFloat(elem.valor) * 0.10 : elem.tipoCombustivel === 'H' ? parseFloat(elem.valor) * 0.08 : parseFloat(elem.valor) * 0.02
 
 
         const divVeiculo = document.createElement('div')
