@@ -171,6 +171,6 @@ span.vlr {
 }
 
 .isento{
-    background-color: #056043;
-    color: #ffffff;
+    border-left: 8px solid #056043;
+
 }
