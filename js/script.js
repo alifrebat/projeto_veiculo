@@ -61,8 +61,8 @@ const listarVeiculos = () => {
         vlrIpva = idadeVeiculo > 20 ? 0 : vlrIpva
 
         const divVeiculo = document.createElement('div')
-        divVeiculo.setAttribute('class', 'veiculo')
-        divVeiculo.innerHTML = `<span class="txt"> ${elem.modelo} </span> <span class="txt"> ${elem.marca} </span> <span class="txt alg"> ${elem.placa} </span> <span class="txt alg"> ${idadeVeiculo}anos </span> <span class="vlr"> R$ ${parseFloat(vlrSeguro).toFixed(2).replaceAll('.', ',')} </span> <span class="vlr">  ${vlrIpva > 0 ? parseFloat(vlrIpva).toFixed(2).replaceAll('.', ',') : 'Isento'} </span> <span class="vlr"> R$ ${parseFloat(vlrSeguro + vlrIpva).toFixed(2).replaceAll('.', ',')} </span>`
+        divVeiculo.setAttribute('class', `veiculo ${vlrIpva === 0 ? 'isento' : ''} `)
+        divVeiculo.innerHTML = `<span class="txt"> ${elem.modelo} </span> <span class="txt"> ${elem.marca} </span> <span class="txt alg"> ${elem.placa} </span> <span class="txt alg"> ${idadeVeiculo}anos </span> <span class="vlr"> R$ ${parseFloat(vlrSeguro).toFixed(2).replaceAll('.', ',')} </span> <span class="vlr">  ${vlrIpva > 0 ? 'R$ '+ parseFloat(vlrIpva).toFixed(2).replaceAll('.', ',') : 'Isento'} </span> <span class="vlr"> R$ ${parseFloat(vlrSeguro + vlrIpva).toFixed(2).replaceAll('.', ',')} </span>`
 
 
         const imgAlterar = document.createElement('img')
