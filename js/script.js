@@ -13,7 +13,7 @@ formVeiculos.addEventListener('submit', (evt) => {
 
     const objFrmVeiculo = new FormData(formVeiculos)
 
-    const idsession = sessionStorage.getItem('idsessionveiculo') === null ? 0 : sessionStorage.getItem('idsessionveiculo')
+    const idsession = sessionStorage.getItem('idSessionVeiculo') === null ? 0 : sessionStorage.getItem('idSessionVeiculo')
 
     veiculo = {
         idVeiculo: idsession,
@@ -27,9 +27,14 @@ formVeiculos.addEventListener('submit', (evt) => {
 
     cadastroVeiculo(veiculo)
 
-    console.log(veiculos.length)
-
     formVeiculos.reset()
+
+})
+
+//CAPTURANDO O EVENTO RESET
+formVeiculos.addEventListener('reset', () => {
+    sessionStorage.removeItem('idSessionVeiculo')
+    document.querySelector('#btn-enviar').innerHTML = 'Cadastrar'
 
 })
 
@@ -62,7 +67,7 @@ const listarVeiculos = () => {
 
         const divVeiculo = document.createElement('div')
         divVeiculo.setAttribute('class', `veiculo ${vlrIpva === 0 ? 'isento' : ''} `)
-        divVeiculo.innerHTML = `<span class="txt"> ${elem.modelo} </span> <span class="txt"> ${elem.marca} </span> <span class="txt alg"> ${elem.placa} </span> <span class="txt alg"> ${idadeVeiculo}anos </span> <span class="vlr"> R$ ${parseFloat(vlrSeguro).toFixed(2).replaceAll('.', ',')} </span> <span class="vlr">  ${vlrIpva > 0 ? 'R$ '+ parseFloat(vlrIpva).toFixed(2).replaceAll('.', ',') : 'Isento'} </span> <span class="vlr"> R$ ${parseFloat(vlrSeguro + vlrIpva).toFixed(2).replaceAll('.', ',')} </span>`
+        divVeiculo.innerHTML = `<span class="txt"> ${elem.modelo} </span> <span class="txt"> ${elem.marca} </span> <span class="txt alg"> ${elem.placa} </span> <span class="txt alg"> ${idadeVeiculo}anos </span> <span class="vlr"> R$ ${parseFloat(vlrSeguro).toFixed(2).replaceAll('.', ',')} </span> <span class="vlr">  ${vlrIpva > 0 ? 'R$ ' + parseFloat(vlrIpva).toFixed(2).replaceAll('.', ',') : 'Isento'} </span> <span class="vlr"> R$ ${parseFloat(vlrSeguro + vlrIpva).toFixed(2).replaceAll('.', ',')} </span>`
 
 
         const imgAlterar = document.createElement('img')
@@ -71,7 +76,11 @@ const listarVeiculos = () => {
         imgAlterar.setAttribute('title', 'Alterar')
 
         imgAlterar.addEventListener('click', () => {
-            alert(`Em construção ${elem.idVeiculo}`)
+            carregaForm(elem)
+            sessionStorage.setItem('idSessionVeiculo', elem.idVeiculo)
+            document.querySelector('#btn-enviar').innerHTML = 'Alterar'
+            window.location.href = '#cabecalho'
+
         })
 
         const spanImgAlterar = document.createElement('span')
@@ -103,5 +112,17 @@ const calcIdade = (ano) => {
 
     let idade = hoje.getFullYear() - ano
 
-      return idade
+    return idade
+}
+
+//ALTERAR
+const carregaForm = (objVeiculo) => {
+    document.querySelector('#modelo').value = objVeiculo.modelo
+    document.querySelector('#marca').value = objVeiculo.marca
+    document.querySelector('#placa').value = objVeiculo.placa
+    document.querySelector('#ano').value = objVeiculo.ano
+    document.querySelector('#valor').value = objVeiculo.valor
+    document.querySelector('#valor').value = objVeiculo.valor
+
+    objVeiculo.tipoCombustivel === 'G' ? document.querySelector('#gasolina').checked = true : objVeiculo.tipoCombustivel === 'E' ? document.querySelector('#etanol').checked = true : objVeiculo.tipoCombustivel === 'B' ? document.querySelector('#bicombustivel').checked = true : objVeiculo.tipoCombustivel === 'H' ? document.querySelector('#hibrido').checked = true : document.querySelector('#hibrido').checked = true
 }
