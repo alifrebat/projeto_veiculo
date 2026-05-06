@@ -25,7 +25,11 @@ formVeiculos.addEventListener('submit', (evt) => {
         tipoCombustivel: objFrmVeiculo.get('tpCombustivel')
     }
 
-    cadastroVeiculo(veiculo)
+    if (idsession === 0) {
+        cadastroVeiculo(veiculo)
+    } else {
+        alterarVeiculo(veiculo)
+    }
 
     formVeiculos.reset()
 
@@ -92,7 +96,9 @@ const listarVeiculos = () => {
         imgExcluir.setAttribute('title', 'Excluir')
 
         imgExcluir.addEventListener('click', () => {
-            alert(`Em construção ${elem.idVeiculo}`)
+            if (confirm(`DESEJA EXCLUIR OS DADOS DE ${elem.modelo}, de placa ${elem.placa}?`)) {
+                excluirVeiculo(elem.idVeiculo)
+            }
         })
 
         const spanImgExcluir = document.createElement('span')
@@ -115,7 +121,7 @@ const calcIdade = (ano) => {
     return idade
 }
 
-//ALTERAR
+//CARREGA FORMULÁRIO
 const carregaForm = (objVeiculo) => {
     document.querySelector('#modelo').value = objVeiculo.modelo
     document.querySelector('#marca').value = objVeiculo.marca
@@ -125,4 +131,29 @@ const carregaForm = (objVeiculo) => {
     document.querySelector('#valor').value = objVeiculo.valor
 
     objVeiculo.tipoCombustivel === 'G' ? document.querySelector('#gasolina').checked = true : objVeiculo.tipoCombustivel === 'E' ? document.querySelector('#etanol').checked = true : objVeiculo.tipoCombustivel === 'B' ? document.querySelector('#bicombustivel').checked = true : objVeiculo.tipoCombustivel === 'H' ? document.querySelector('#hibrido').checked = true : document.querySelector('#hibrido').checked = true
+}
+
+//ALTERAR VEÍCULO
+const alterarVeiculo = (objVeiculo) => {
+    if (objVeiculo !== null) {
+        if (confirm(`DESEJA ALTERAR OS DADOS DE ${objVeiculo.modelo}, de placa ${objVeiculo.placa}?`)) {
+            alert(`Em construção ${objVeiculo}`)
+
+        }
+    }
+
+    formVeiculos.reset()
+
+    listarVeiculos()
+}
+
+//EXCLUIR VEÍCULO
+const excluirVeiculo = (idVeiculo) => {
+    if (idVeiculo > 0) {
+        alert(`Em construção ${idVeiculo}`)
+    }
+
+    formVeiculos.reset()
+
+    listarVeiculos()
 }
